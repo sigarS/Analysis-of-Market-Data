@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1607146089613.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "11EA562B",
+    "lastKnownWriteTime" : 7810123700365321520,
+    "last_content_update" : 1607146089613,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "60721AA6",
+        "caption" : "scaledControlSales",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=scaledControlSales&cache_key=60721AA6",
+        "displayedObservations" : "12",
+        "environment" : "",
+        "expression" : "scaledControlSales",
+        "object" : "scaledControlSales",
+        "preview" : "0",
+        "totalObservations" : "12",
+        "variables" : "9"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1607149006615.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "186897492",
+    "id" : "FB2A4C17",
+    "lastKnownWriteTime" : 1607154950,
+    "last_content_update" : 1607154951006,
+    "path" : "~/R/Quantium/Task 2/Task2.Rmd",
+    "project_path" : "Task2.Rmd",
+    "properties" : {
+        "cursorPosition" : "455,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

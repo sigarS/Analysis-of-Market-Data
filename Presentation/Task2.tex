@@ -1,0 +1,916 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Task 2},
+  pdfborder={0 0 0},
+  breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-2}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{Task 2}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(data.table)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'data.table' was built under R version 3.6.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{library}\NormalTok{(tidyr)}
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:data.table':
+## 
+##     between, first, last
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{file_path =}\StringTok{ "C:/Users/jerem/Documents/R/Quantium/Task 2/"}
+\NormalTok{data =}\StringTok{ }\KeywordTok{fread}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(file_path, }\StringTok{"QVI_data.csv"}\NormalTok{))}
+\KeywordTok{theme_set}\NormalTok{(}\KeywordTok{theme_bw}\NormalTok{())}
+\KeywordTok{theme_update}\NormalTok{(}\DataTypeTok{plot.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{hjust =} \FloatTok{0.5}\NormalTok{))}
+
+
+\NormalTok{data[, YEARMONTH }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{format}\NormalTok{(}\KeywordTok{as.Date}\NormalTok{(data}\OperatorTok{$}\NormalTok{DATE, }\StringTok{"%Y%m"}\NormalTok{), }\StringTok{"%Y%m"}\NormalTok{) ]}
+
+\CommentTok{##getting data for trial period}
+
+
+\NormalTok{measure_over_time =}\StringTok{ }\NormalTok{data }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(STORE_NBR,YEARMONTH) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{totSales =} \KeywordTok{sum}\NormalTok{(TOT_SALES),}
+            \DataTypeTok{nCustomers =} \KeywordTok{uniqueN}\NormalTok{(LYLTY_CARD_NBR),}
+            \DataTypeTok{nTxnPerCust =} \KeywordTok{uniqueN}\NormalTok{(TXN_ID)}\OperatorTok{/}\NormalTok{nCustomers, }
+            \DataTypeTok{avgPricePerUnit =} \KeywordTok{mean}\NormalTok{(TOT_SALES}\OperatorTok{/}\NormalTok{PROD_QTY))}
+\NormalTok{measure_over_time =}\StringTok{ }\KeywordTok{data.table}\NormalTok{(measure_over_time)}
+
+\NormalTok{storesWithFullObs <-}\StringTok{ }\KeywordTok{unique}\NormalTok{(measure_over_time[, .N, STORE_NBR][N }\OperatorTok{==}\StringTok{ }\DecValTok{12}\NormalTok{, STORE_NBR])}
+\NormalTok{preTrialMeasures <-}\StringTok{ }\NormalTok{measure_over_time[YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902} \OperatorTok{&}\StringTok{ }\NormalTok{STORE_NBR }\OperatorTok{%in%}\StringTok{            }\NormalTok{storesWithFullObs, ]}
+
+\CommentTok{## function for calculating correlation}
+\NormalTok{calculateCorrelation <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(inputTable, metricCol, storeComparison) \{}
+\NormalTok{calcCorrTable =}\StringTok{ }\KeywordTok{data.table}\NormalTok{(}\DataTypeTok{Store1 =} \KeywordTok{numeric}\NormalTok{(), }\DataTypeTok{Store2 =} \KeywordTok{numeric}\NormalTok{(), }\DataTypeTok{corr_measure =}
+\KeywordTok{numeric}\NormalTok{())}
+\NormalTok{storeNumbers <-}\StringTok{ }\KeywordTok{unique}\NormalTok{(inputTable[, STORE_NBR])}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in}\NormalTok{ storeNumbers) \{}
+\NormalTok{calculatedMeasure =}\StringTok{ }\KeywordTok{data.table}\NormalTok{(}\StringTok{"Store1"}\NormalTok{ =}\StringTok{ }\NormalTok{storeComparison,}
+\StringTok{"Store2"}\NormalTok{ =}\StringTok{ }\NormalTok{i,}
+\StringTok{"corr_measure"}\NormalTok{ =}\StringTok{ }\KeywordTok{cor}\NormalTok{(inputTable[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{storeComparison, }\KeywordTok{eval}\NormalTok{(metricCol)], inputTable[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{i, }\KeywordTok{eval}\NormalTok{(metricCol)])}
+\NormalTok{)}
+\NormalTok{calcCorrTable <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(calcCorrTable, calculatedMeasure)}
+\NormalTok{\}}
+\KeywordTok{return}\NormalTok{(calcCorrTable)}
+\NormalTok{\}}
+
+\CommentTok{#### Create a function to calculate a standardised magnitude distance for a measure,}
+\NormalTok{calculateMagnitudeDistance <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(inputTable, metricCol, storeComparison) \{}
+\NormalTok{  calcDistTable =}\StringTok{ }\KeywordTok{data.table}\NormalTok{(}\DataTypeTok{Store1 =} \KeywordTok{numeric}\NormalTok{(), }\DataTypeTok{Store2 =} \KeywordTok{numeric}\NormalTok{(), }\DataTypeTok{YEARMONTH =}
+                               \KeywordTok{numeric}\NormalTok{(), }\DataTypeTok{measure =} \KeywordTok{numeric}\NormalTok{())}
+\NormalTok{  storeNumbers <-}\StringTok{ }\KeywordTok{unique}\NormalTok{(inputTable[, STORE_NBR])}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in}\NormalTok{ storeNumbers) \{}
+\NormalTok{    calculatedMeasure =}\StringTok{ }\KeywordTok{data.table}\NormalTok{(}\StringTok{"Store1"}\NormalTok{ =}\StringTok{ }\NormalTok{storeComparison}
+\NormalTok{                                   , }\StringTok{"Store2"}\NormalTok{ =}\StringTok{ }\NormalTok{i}
+\NormalTok{                                   , }\StringTok{"YEARMONTH"}\NormalTok{ =}\StringTok{ }\NormalTok{inputTable[STORE_NBR }\OperatorTok{==}
+\StringTok{                                                                }\NormalTok{storeComparison, YEARMONTH]}
+\NormalTok{                                   , }\StringTok{"measure"}\NormalTok{ =}\StringTok{ }\KeywordTok{abs}\NormalTok{(inputTable[STORE_NBR }\OperatorTok{==}
+\StringTok{                                                                  }\NormalTok{storeComparison, }\KeywordTok{eval}\NormalTok{(metricCol)]}
+                                                     \OperatorTok{-}\StringTok{ }\NormalTok{inputTable[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{i,}
+                                                                  \KeywordTok{eval}\NormalTok{(metricCol)])}
+\NormalTok{    )}
+\NormalTok{    calcDistTable <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(calcDistTable, calculatedMeasure)}
+\NormalTok{  \}}
+  \CommentTok{#### Standardise the magnitude distance so that the measure ranges from 0 to 1}
+\NormalTok{  minMaxDist <-}\StringTok{ }\NormalTok{calcDistTable[, .(}\DataTypeTok{minDist =} \KeywordTok{min}\NormalTok{(measure), }\DataTypeTok{maxDist =} \KeywordTok{max}\NormalTok{(measure)),}
+\NormalTok{                              by =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Store1"}\NormalTok{, }\StringTok{"YEARMONTH"}\NormalTok{)]}
+\NormalTok{  distTable <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(calcDistTable, minMaxDist, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"Store1"}\NormalTok{, }\StringTok{"YEARMONTH"}\NormalTok{))}
+\NormalTok{  distTable[, magnitudeMeasure }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{(measure }\OperatorTok{-}\StringTok{ }\NormalTok{minDist)}\OperatorTok{/}\NormalTok{(maxDist }\OperatorTok{-}\StringTok{ }\NormalTok{minDist)]}
+\NormalTok{  finalDistTable <-}\StringTok{ }\NormalTok{distTable[, .(}\DataTypeTok{mag_measure =} \KeywordTok{mean}\NormalTok{(magnitudeMeasure)), by =}
+\StringTok{                                }\NormalTok{.(Store1, Store2)]}
+  \KeywordTok{return}\NormalTok{(finalDistTable)}
+\NormalTok{\}}
+
+\CommentTok{### TRIAL STORE 77}
+\NormalTok{trial_store <-}\StringTok{ }\DecValTok{77}
+\NormalTok{corr_nSales <-}\StringTok{ }\KeywordTok{calculateCorrelation}\NormalTok{(preTrialMeasures, }\KeywordTok{quote}\NormalTok{(totSales), }
+\NormalTok{                                    trial_store)}
+\NormalTok{corr_nCustomers <-}\StringTok{ }\KeywordTok{calculateCorrelation}\NormalTok{(preTrialMeasures, }\KeywordTok{quote}\NormalTok{(nCustomers),trial_store )}
+\NormalTok{magnitude_nSales <-}\StringTok{ }\KeywordTok{calculateMagnitudeDistance}\NormalTok{(preTrialMeasures, }\KeywordTok{quote}\NormalTok{(totSales),}
+\NormalTok{                                               trial_store)}
+\NormalTok{magnitude_nCustomers <-}\StringTok{ }\KeywordTok{calculateMagnitudeDistance}\NormalTok{(preTrialMeasures,}
+                                                   \KeywordTok{quote}\NormalTok{(nCustomers), trial_store)}
+
+
+\NormalTok{corr_weight <-}\StringTok{ }\FloatTok{0.5}
+\NormalTok{score_nSales <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(corr_nSales, magnitude_nSales, }\DataTypeTok{by =} \KeywordTok{intersect}\NormalTok{(}\KeywordTok{names}\NormalTok{(corr_nSales),}\KeywordTok{names}\NormalTok{(magnitude_nSales)))[, scoreNSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{corr_weight}\OperatorTok{*}\NormalTok{corr_nSales}\OperatorTok{$}\NormalTok{corr_measure }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{corr_weight)}\OperatorTok{*}\StringTok{ }\NormalTok{magnitude_nSales}\OperatorTok{$}\NormalTok{mag_measure]}
+\NormalTok{score_nCustomers <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(corr_nCustomers, magnitude_nCustomers, }\DataTypeTok{by =} \KeywordTok{intersect}\NormalTok{(}\KeywordTok{names}\NormalTok{(corr_nCustomers),}\KeywordTok{names}\NormalTok{(magnitude_nCustomers)))[, scoreNCust }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{corr_weight}\OperatorTok{*}\NormalTok{corr_measure }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{corr_weight)}\OperatorTok{*}\NormalTok{mag_measure]}
+\NormalTok{score_Control <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(score_nSales,score_nCustomers , }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"Store1"}\NormalTok{, }\StringTok{"Store2"}\NormalTok{))}
+\NormalTok{score_Control[, finalControlScore }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{scoreNSales }\OperatorTok{*}\StringTok{ }\FloatTok{0.5} \OperatorTok{+}\StringTok{ }\NormalTok{scoreNCust }\OperatorTok{*}\StringTok{ }\FloatTok{0.5}\NormalTok{]}
+
+\NormalTok{score_Control =}\StringTok{ }\NormalTok{score_Control[}\KeywordTok{order}\NormalTok{(}\OperatorTok{-}\NormalTok{finalControlScore)]}
+\NormalTok{control_store =}\StringTok{ }\NormalTok{score_Control[}\DecValTok{2}\NormalTok{,]}\OperatorTok{$}\NormalTok{Store2}
+
+\NormalTok{measureOverTimeSales =}\StringTok{ }\NormalTok{measure_over_time}
+\NormalTok{measureOverTimeSales}\OperatorTok{$}\NormalTok{YEARMONTH =}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(measureOverTimeSales}\OperatorTok{$}\NormalTok{YEARMONTH)}
+\NormalTok{pastSales <-}\StringTok{ }\NormalTok{measureOverTimeSales[, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{trial_store,}
+\StringTok{"Trial"}\NormalTok{,}
+\KeywordTok{ifelse}\NormalTok{(STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store,}
+\StringTok{"Control"}\NormalTok{, }\StringTok{"Other stores"}\NormalTok{))}
+\NormalTok{][, totSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{mean}\NormalTok{(totSales), by =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"YEARMONTH"}\NormalTok{,}
+\StringTok{"Store_type"}\NormalTok{)}
+\NormalTok{][, TransactionMonth }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{as.Date}\NormalTok{(}\KeywordTok{paste}\NormalTok{(YEARMONTH }\OperatorTok{%/%}\StringTok{ }\DecValTok{100}\NormalTok{, YEARMONTH }\OperatorTok{%%}\StringTok{ }\DecValTok{100}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"-"}\NormalTok{))}
+\NormalTok{][YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201903}\NormalTok{ , ]}
+
+
+\KeywordTok{ggplot}\NormalTok{(pastSales, }\KeywordTok{aes}\NormalTok{(TransactionMonth, totSales, }\DataTypeTok{color =}\NormalTok{ Store_type)) }\OperatorTok{+}
+\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month of operation"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"Total sales"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Total sales by month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task2_files/figure-latex/cars-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pastCustomers <-}\StringTok{ }\NormalTok{measureOverTimeSales[, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{trial_store,}
+                                                         \StringTok{"Trial"}\NormalTok{,}
+                                                         \KeywordTok{ifelse}\NormalTok{(STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store,}
+                                                                \StringTok{"Control"}\NormalTok{, }\StringTok{"Other stores"}\NormalTok{))}
+\NormalTok{                                  ][, nCustomers }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{mean}\NormalTok{(nCustomers), by =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"YEARMONTH"}\NormalTok{,}
+                                                                         \StringTok{"Store_type"}\NormalTok{)}
+\NormalTok{                                    ][, TransactionMonth }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{as.Date}\NormalTok{(}\KeywordTok{paste}\NormalTok{(YEARMONTH }\OperatorTok{%/%}\StringTok{ }\DecValTok{100}\NormalTok{, YEARMONTH }\OperatorTok{%%}\StringTok{ }\DecValTok{100}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"-"}\NormalTok{))}
+\NormalTok{                                      ][YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201903}\NormalTok{ , ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 1 column 'nCustomers': 70.750000 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 2 column 'nCustomers': 71.352490 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 3 column 'nCustomers': 69.110687 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 4 column 'nCustomers': 70.334601 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 5 column 'nCustomers': 69.534351 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 6 column 'nCustomers': 72.731801 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 7 column 'nCustomers': 70.471264 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 8 column 'nCustomers': 65.492366 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 9 column 'nCustomers': 71.509506 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 10 column 'nCustomers': 68.771863 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 11 column 'nCustomers': 70.865900 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 12 column 'nCustomers': 69.396947 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(pastCustomers, }\KeywordTok{aes}\NormalTok{(TransactionMonth, nCustomers, }\DataTypeTok{color =}\NormalTok{ Store_type)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month of operation"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"Total sales"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Total sales by month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task2_files/figure-latex/cars-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{scalingFactorForControlSales <-}\StringTok{ }\NormalTok{preTrialMeasures[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{trial_store }\OperatorTok{&}
+\NormalTok{YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{, }\KeywordTok{sum}\NormalTok{(totSales)]}\OperatorTok{/}\NormalTok{preTrialMeasures[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store }\OperatorTok{&}
+\NormalTok{YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{, }\KeywordTok{sum}\NormalTok{(totSales)]}
+
+\NormalTok{scaledControlSales <-}\StringTok{ }\NormalTok{measureOverTimeSales[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store, ][ ,}
+\NormalTok{controlSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{totSales }\OperatorTok{*}\StringTok{ }\NormalTok{scalingFactorForControlSales]}
+
+\NormalTok{percentageDiff <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(scaledControlSales,pastSales[Store_type }\OperatorTok{==}\StringTok{ "Trial"}\NormalTok{], }\DataTypeTok{by =} \StringTok{"YEARMONTH"}\NormalTok{)[,percentageDiff }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\DecValTok{100}\OperatorTok{*}\KeywordTok{abs}\NormalTok{(controlSales }\OperatorTok{-}\StringTok{ }\NormalTok{totSales.y)}\OperatorTok{/}\NormalTok{controlSales ]}
+\NormalTok{stdDev <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(percentageDiff[YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{ , percentageDiff])}
+
+\NormalTok{degreesOfFreedom <-}\StringTok{ }\DecValTok{7}
+\NormalTok{percentageDiff[, tValue }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{abs}\NormalTok{(totSales.x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(totSales.y))}\OperatorTok{/}\NormalTok{stdDev}
+\NormalTok{][, TransactionMonth }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{TransactionMonth.x}
+\NormalTok{]}
+\NormalTok{pastSales <-}\StringTok{ }\NormalTok{pastSales[Store_type }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Trial"}\NormalTok{, }\StringTok{"Control"}\NormalTok{), ]}
+
+
+\NormalTok{pastSales_Controls95 <-}\StringTok{ }\NormalTok{pastSales[Store_type }\OperatorTok{==}\StringTok{ "Control"}\NormalTok{,}
+\NormalTok{                                  ][, totSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{totSales }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{stdDev }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{                                    ][, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Control 95th % confidence}
+\StringTok{interval"}\NormalTok{]}
+\CommentTok{#### Control store 5th percentile}
+\NormalTok{pastSales_Controls5 <-}\StringTok{ }\NormalTok{pastSales[Store_type }\OperatorTok{==}\StringTok{ "Control"}\NormalTok{,}
+\NormalTok{                                 ][, totSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{totSales }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{stdDev }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{                                   ][, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Control 5th % confidence}
+\StringTok{interval"}\NormalTok{]}
+\NormalTok{trialAssessment <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(pastSales, pastSales_Controls95, pastSales_Controls5)}
+\CommentTok{#### Plotting these in one nice graph}
+\KeywordTok{ggplot}\NormalTok{(trialAssessment, }\KeywordTok{aes}\NormalTok{(TransactionMonth, totSales, }\DataTypeTok{color =}\NormalTok{ Store_type)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_rect}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ trialAssessment[ YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201905} \OperatorTok{&}\StringTok{ }\NormalTok{YEARMONTH }\OperatorTok{>}\StringTok{ }\DecValTok{201901}\NormalTok{ ,],}
+            \KeywordTok{aes}\NormalTok{(}\DataTypeTok{xmin =} \KeywordTok{min}\NormalTok{(TransactionMonth), }\DataTypeTok{xmax =} \KeywordTok{max}\NormalTok{(TransactionMonth), }\DataTypeTok{ymin =} \DecValTok{0}\NormalTok{ , }\DataTypeTok{ymax =}
+                  \OtherTok{Inf}\NormalTok{, }\DataTypeTok{color =} \OtherTok{NULL}\NormalTok{), }\DataTypeTok{show.legend =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month of operation"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"Total sales"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Total sales by month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task2_files/figure-latex/cars-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{scalingFactorForControlCust <-}\StringTok{ }\NormalTok{preTrialMeasures[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{trial_store }\OperatorTok{&}\StringTok{ }\NormalTok{YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{, }\KeywordTok{sum}\NormalTok{(nCustomers)]}\OperatorTok{/}\NormalTok{preTrialMeasures[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store }\OperatorTok{&}\StringTok{ }\NormalTok{YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{, }\KeywordTok{sum}\NormalTok{(nCustomers)]}
+\NormalTok{measureOverTimeCusts <-}\StringTok{ }\NormalTok{measureOverTimeSales}
+\NormalTok{scaledControlCustomers <-}\StringTok{ }\NormalTok{measureOverTimeCusts[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store, ][ , controlCustomer }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{nCustomers }\OperatorTok{*}\StringTok{ }\NormalTok{scalingFactorForControlCust]}
+
+\NormalTok{percentageDiff <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(scaledControlCustomers,pastCustomers[Store_type }\OperatorTok{==}\StringTok{ "Trial"}\NormalTok{], }\DataTypeTok{by =} \StringTok{"YEARMONTH"}\NormalTok{)[,percentageDiff }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\DecValTok{100}\OperatorTok{*}\KeywordTok{abs}\NormalTok{(controlCustomer }\OperatorTok{-}\StringTok{ }\NormalTok{nCustomers.y)}\OperatorTok{/}\NormalTok{controlCustomer ]}
+\NormalTok{stdDev <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(percentageDiff[YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{ , percentageDiff]}
+\NormalTok{)}
+
+\NormalTok{degreesOfFreedom <-}\StringTok{ }\DecValTok{7}
+\CommentTok{#### Trial and control store number of customers}
+\NormalTok{pastCustomers <-}\StringTok{ }\NormalTok{measureOverTimeCusts[, nCusts }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{mean}\NormalTok{(nCustomers), by =}
+\StringTok{                                        }\KeywordTok{c}\NormalTok{(}\StringTok{"YEARMONTH"}\NormalTok{, }\StringTok{"Store_type"}\NormalTok{)}
+\NormalTok{                                      ][Store_type }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Trial"}\NormalTok{, }\StringTok{"Control"}\NormalTok{), ]}
+
+
+\NormalTok{pastCustomers_Controls95 <-}\StringTok{ }\NormalTok{pastCustomers[Store_type }\OperatorTok{==}\StringTok{ "Control"}\NormalTok{,}
+\NormalTok{                                          ][, nCusts }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{nCusts }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{stdDev }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{                                            ][, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Control 95th % confidence}
+\StringTok{Page 920200128_InsideSherpa_Task2_DraftSolutions - Template.Rmd}
+\StringTok{interval"}\NormalTok{]}
+\CommentTok{#### Control store 5th percentile}
+\NormalTok{pastCustomers_Controls5 <-}\StringTok{ }\NormalTok{pastCustomers[Store_type }\OperatorTok{==}\StringTok{ "Control"}\NormalTok{,}
+\NormalTok{                                         ][, nCusts }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{nCusts }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{stdDev }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{                                           ][, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Control 5th % confidence}
+\StringTok{interval"}\NormalTok{]}
+\NormalTok{trialAssessment <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(pastCustomers, pastCustomers_Controls95,}
+\NormalTok{                         pastCustomers_Controls5)}
+
+\KeywordTok{ggplot}\NormalTok{(trialAssessment, }\KeywordTok{aes}\NormalTok{(TransactionMonth, nCusts, }\DataTypeTok{color =}\NormalTok{ Store_type)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_rect}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ trialAssessment[ YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201905} \OperatorTok{&}\StringTok{ }\NormalTok{YEARMONTH }\OperatorTok{>}\StringTok{ }\DecValTok{201901}\NormalTok{ ,],}
+            \KeywordTok{aes}\NormalTok{(}\DataTypeTok{xmin =} \KeywordTok{min}\NormalTok{(TransactionMonth), }\DataTypeTok{xmax =} \KeywordTok{max}\NormalTok{(TransactionMonth), }\DataTypeTok{ymin =} \DecValTok{0}\NormalTok{ , }\DataTypeTok{ymax =}
+                  \OtherTok{Inf}\NormalTok{, }\DataTypeTok{color =} \OtherTok{NULL}\NormalTok{), }\DataTypeTok{show.legend =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month of operation"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"NUmber of Customers"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"NUmber of Customers by month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task2_files/figure-latex/cars-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{### TRIAL STORE 86}
+\NormalTok{trial_store <-}\StringTok{ }\DecValTok{86}
+\NormalTok{corr_nSales <-}\StringTok{ }\KeywordTok{calculateCorrelation}\NormalTok{(preTrialMeasures, }\KeywordTok{quote}\NormalTok{(totSales), }
+\NormalTok{                                    trial_store)}
+\NormalTok{corr_nCustomers <-}\StringTok{ }\KeywordTok{calculateCorrelation}\NormalTok{(preTrialMeasures, }\KeywordTok{quote}\NormalTok{(nCustomers),trial_store )}
+\NormalTok{magnitude_nSales <-}\StringTok{ }\KeywordTok{calculateMagnitudeDistance}\NormalTok{(preTrialMeasures, }\KeywordTok{quote}\NormalTok{(totSales),}
+\NormalTok{                                               trial_store)}
+\NormalTok{magnitude_nCustomers <-}\StringTok{ }\KeywordTok{calculateMagnitudeDistance}\NormalTok{(preTrialMeasures,}
+                                                   \KeywordTok{quote}\NormalTok{(nCustomers), trial_store)}
+
+
+\NormalTok{corr_weight <-}\StringTok{ }\FloatTok{0.5}
+\NormalTok{score_nSales <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(corr_nSales, magnitude_nSales, }\DataTypeTok{by =} \KeywordTok{intersect}\NormalTok{(}\KeywordTok{names}\NormalTok{(corr_nSales),}\KeywordTok{names}\NormalTok{(magnitude_nSales)))[, scoreNSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{corr_weight}\OperatorTok{*}\NormalTok{corr_nSales}\OperatorTok{$}\NormalTok{corr_measure }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{corr_weight)}\OperatorTok{*}\StringTok{ }\NormalTok{magnitude_nSales}\OperatorTok{$}\NormalTok{mag_measure]}
+\NormalTok{score_nCustomers <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(corr_nCustomers, magnitude_nCustomers, }\DataTypeTok{by =} \KeywordTok{intersect}\NormalTok{(}\KeywordTok{names}\NormalTok{(corr_nCustomers),}\KeywordTok{names}\NormalTok{(magnitude_nCustomers)))[, scoreNCust }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{corr_weight}\OperatorTok{*}\NormalTok{corr_measure }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{corr_weight)}\OperatorTok{*}\NormalTok{mag_measure]}
+\NormalTok{score_Control <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(score_nSales,score_nCustomers , }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"Store1"}\NormalTok{, }\StringTok{"Store2"}\NormalTok{))}
+\NormalTok{score_Control[, finalControlScore }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{scoreNSales }\OperatorTok{*}\StringTok{ }\FloatTok{0.5} \OperatorTok{+}\StringTok{ }\NormalTok{scoreNCust }\OperatorTok{*}\StringTok{ }\FloatTok{0.5}\NormalTok{]}
+
+\NormalTok{score_Control =}\StringTok{ }\NormalTok{score_Control[}\KeywordTok{order}\NormalTok{(}\OperatorTok{-}\NormalTok{finalControlScore)]}
+\NormalTok{control_store =}\StringTok{ }\NormalTok{score_Control[}\DecValTok{2}\NormalTok{,]}\OperatorTok{$}\NormalTok{Store2}
+
+\NormalTok{measureOverTimeSales =}\StringTok{ }\NormalTok{measure_over_time}
+\NormalTok{measureOverTimeSales}\OperatorTok{$}\NormalTok{YEARMONTH =}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(measureOverTimeSales}\OperatorTok{$}\NormalTok{YEARMONTH)}
+\NormalTok{pastSales <-}\StringTok{ }\NormalTok{measureOverTimeSales[, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{trial_store,}
+                                                         \StringTok{"Trial"}\NormalTok{,}
+                                                         \KeywordTok{ifelse}\NormalTok{(STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store,}
+                                                                \StringTok{"Control"}\NormalTok{, }\StringTok{"Other stores"}\NormalTok{))}
+\NormalTok{                                  ][, totSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{mean}\NormalTok{(totSales), by =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"YEARMONTH"}\NormalTok{,}
+                                                                         \StringTok{"Store_type"}\NormalTok{)}
+\NormalTok{                                    ][, TransactionMonth }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{as.Date}\NormalTok{(}\KeywordTok{paste}\NormalTok{(YEARMONTH }\OperatorTok{%/%}\StringTok{ }\DecValTok{100}\NormalTok{, YEARMONTH }\OperatorTok{%%}\StringTok{ }\DecValTok{100}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"-"}\NormalTok{))}
+\NormalTok{                                      ][YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201903}\NormalTok{ , ]}
+
+
+\KeywordTok{ggplot}\NormalTok{(pastSales, }\KeywordTok{aes}\NormalTok{(TransactionMonth, totSales, }\DataTypeTok{color =}\NormalTok{ Store_type)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month of operation"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"Total sales"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Total sales by month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task2_files/figure-latex/cars-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pastCustomers <-}\StringTok{ }\NormalTok{measureOverTimeSales[, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{trial_store,}
+                                                             \StringTok{"Trial"}\NormalTok{,}
+                                                             \KeywordTok{ifelse}\NormalTok{(STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store,}
+                                                                    \StringTok{"Control"}\NormalTok{, }\StringTok{"Other stores"}\NormalTok{))}
+\NormalTok{                                      ][, nCustomers }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{mean}\NormalTok{(nCustomers), by =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"YEARMONTH"}\NormalTok{,}
+                                                                                 \StringTok{"Store_type"}\NormalTok{)}
+\NormalTok{                                        ][, TransactionMonth }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{as.Date}\NormalTok{(}\KeywordTok{paste}\NormalTok{(YEARMONTH }\OperatorTok{%/%}\StringTok{ }\DecValTok{100}\NormalTok{, YEARMONTH }\OperatorTok{%%}\StringTok{ }\DecValTok{100}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"-"}\NormalTok{))}
+\NormalTok{                                          ][YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201903}\NormalTok{ , ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 1 column 'nCustomers': 70.378788 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 2 column 'nCustomers': 71.007663 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 3 column 'nCustomers': 68.645038 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 4 column 'nCustomers': 69.783270 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 5 column 'nCustomers': 69.076336 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 6 column 'nCustomers': 72.340996 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 7 column 'nCustomers': 70.011494 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 8 column 'nCustomers': 65.064885 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 9 column 'nCustomers': 71.057034 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 10 column 'nCustomers': 68.288973 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 11 column 'nCustomers': 70.490421 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 12 column 'nCustomers': 68.973282 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(pastCustomers, }\KeywordTok{aes}\NormalTok{(TransactionMonth, nCustomers, }\DataTypeTok{color =}\NormalTok{ Store_type)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month of operation"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"Total sales"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Total sales by month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task2_files/figure-latex/cars-6.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{scalingFactorForControlSales <-}\StringTok{ }\NormalTok{preTrialMeasures[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{trial_store }\OperatorTok{&}
+\StringTok{                                                   }\NormalTok{YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{, }\KeywordTok{sum}\NormalTok{(totSales)]}\OperatorTok{/}\NormalTok{preTrialMeasures[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store }\OperatorTok{&}
+\StringTok{                                                                                                         }\NormalTok{YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{, }\KeywordTok{sum}\NormalTok{(totSales)]}
+
+\NormalTok{scaledControlSales <-}\StringTok{ }\NormalTok{measureOverTimeSales[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store, ][ ,}
+\NormalTok{                                                                          controlSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{totSales }\OperatorTok{*}\StringTok{ }\NormalTok{scalingFactorForControlSales]}
+
+\NormalTok{percentageDiff <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(scaledControlSales,pastSales[Store_type }\OperatorTok{==}\StringTok{ "Trial"}\NormalTok{], }\DataTypeTok{by =} \StringTok{"YEARMONTH"}\NormalTok{)[,percentageDiff }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\DecValTok{100}\OperatorTok{*}\KeywordTok{abs}\NormalTok{(controlSales }\OperatorTok{-}\StringTok{ }\NormalTok{totSales.y)}\OperatorTok{/}\NormalTok{controlSales ]}
+\NormalTok{stdDev <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(percentageDiff[YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{ , percentageDiff])}
+
+\NormalTok{degreesOfFreedom <-}\StringTok{ }\DecValTok{7}
+\NormalTok{percentageDiff[, tValue }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{abs}\NormalTok{(totSales.x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(totSales.y))}\OperatorTok{/}\NormalTok{stdDev}
+\NormalTok{               ][, TransactionMonth }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{TransactionMonth.x}
+\NormalTok{                 ]}
+\NormalTok{pastSales <-}\StringTok{ }\NormalTok{pastSales[Store_type }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Trial"}\NormalTok{, }\StringTok{"Control"}\NormalTok{), ]}
+
+
+\NormalTok{pastSales_Controls95 <-}\StringTok{ }\NormalTok{pastSales[Store_type }\OperatorTok{==}\StringTok{ "Control"}\NormalTok{,}
+\NormalTok{                                  ][, totSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{totSales }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{stdDev }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{                                    ][, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Control 95th % confidence}
+\StringTok{interval"}\NormalTok{]}
+\CommentTok{#### Control store 5th percentile}
+\NormalTok{pastSales_Controls5 <-}\StringTok{ }\NormalTok{pastSales[Store_type }\OperatorTok{==}\StringTok{ "Control"}\NormalTok{,}
+\NormalTok{                                 ][, totSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{totSales }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{stdDev }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{                                   ][, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Control 5th % confidence}
+\StringTok{interval"}\NormalTok{]}
+\NormalTok{trialAssessment <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(pastSales, pastSales_Controls95, pastSales_Controls5)}
+\CommentTok{#### Plotting these in one nice graph}
+\KeywordTok{ggplot}\NormalTok{(trialAssessment, }\KeywordTok{aes}\NormalTok{(TransactionMonth, totSales, }\DataTypeTok{color =}\NormalTok{ Store_type)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_rect}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ trialAssessment[ YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201905} \OperatorTok{&}\StringTok{ }\NormalTok{YEARMONTH }\OperatorTok{>}\StringTok{ }\DecValTok{201901}\NormalTok{ ,],}
+            \KeywordTok{aes}\NormalTok{(}\DataTypeTok{xmin =} \KeywordTok{min}\NormalTok{(TransactionMonth), }\DataTypeTok{xmax =} \KeywordTok{max}\NormalTok{(TransactionMonth), }\DataTypeTok{ymin =} \DecValTok{0}\NormalTok{ , }\DataTypeTok{ymax =}
+                  \OtherTok{Inf}\NormalTok{, }\DataTypeTok{color =} \OtherTok{NULL}\NormalTok{), }\DataTypeTok{show.legend =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month of operation"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"Total sales"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Total sales by month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task2_files/figure-latex/cars-7.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{scalingFactorForControlCust <-}\StringTok{ }\NormalTok{preTrialMeasures[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{trial_store }\OperatorTok{&}\StringTok{ }\NormalTok{YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{, }\KeywordTok{sum}\NormalTok{(nCustomers)]}\OperatorTok{/}\NormalTok{preTrialMeasures[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store }\OperatorTok{&}\StringTok{ }\NormalTok{YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{, }\KeywordTok{sum}\NormalTok{(nCustomers)]}
+\NormalTok{measureOverTimeCusts <-}\StringTok{ }\NormalTok{measureOverTimeSales}
+\NormalTok{scaledControlCustomers <-}\StringTok{ }\NormalTok{measureOverTimeCusts[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store, ][ , controlCustomer }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{nCustomers }\OperatorTok{*}\StringTok{ }\NormalTok{scalingFactorForControlCust]}
+
+\NormalTok{percentageDiff <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(scaledControlCustomers,pastCustomers[Store_type }\OperatorTok{==}\StringTok{ "Trial"}\NormalTok{], }\DataTypeTok{by =} \StringTok{"YEARMONTH"}\NormalTok{)[,percentageDiff }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\DecValTok{100}\OperatorTok{*}\KeywordTok{abs}\NormalTok{(controlCustomer }\OperatorTok{-}\StringTok{ }\NormalTok{nCustomers.y)}\OperatorTok{/}\NormalTok{controlCustomer ]}
+\NormalTok{stdDev <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(percentageDiff[YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{ , percentageDiff]}
+\NormalTok{)}
+
+\NormalTok{degreesOfFreedom <-}\StringTok{ }\DecValTok{7}
+\CommentTok{#### Trial and control store number of customers}
+\NormalTok{pastCustomers <-}\StringTok{ }\NormalTok{measureOverTimeCusts[, nCusts }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{mean}\NormalTok{(nCustomers), by =}
+\StringTok{                                        }\KeywordTok{c}\NormalTok{(}\StringTok{"YEARMONTH"}\NormalTok{, }\StringTok{"Store_type"}\NormalTok{)}
+\NormalTok{                                      ][Store_type }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Trial"}\NormalTok{, }\StringTok{"Control"}\NormalTok{), ]}
+
+
+\NormalTok{pastCustomers_Controls95 <-}\StringTok{ }\NormalTok{pastCustomers[Store_type }\OperatorTok{==}\StringTok{ "Control"}\NormalTok{,}
+\NormalTok{                                          ][, nCusts }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{nCusts }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{stdDev }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{                                            ][, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Control 95th % confidence}
+\StringTok{Page 920200128_InsideSherpa_Task2_DraftSolutions - Template.Rmd}
+\StringTok{interval"}\NormalTok{]}
+\CommentTok{#### Control store 5th percentile}
+\NormalTok{pastCustomers_Controls5 <-}\StringTok{ }\NormalTok{pastCustomers[Store_type }\OperatorTok{==}\StringTok{ "Control"}\NormalTok{,}
+\NormalTok{                                         ][, nCusts }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{nCusts }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{stdDev }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{                                           ][, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Control 5th % confidence}
+\StringTok{interval"}\NormalTok{]}
+\NormalTok{trialAssessment <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(pastCustomers, pastCustomers_Controls95,}
+\NormalTok{                         pastCustomers_Controls5)}
+
+\KeywordTok{ggplot}\NormalTok{(trialAssessment, }\KeywordTok{aes}\NormalTok{(TransactionMonth, nCusts, }\DataTypeTok{color =}\NormalTok{ Store_type)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_rect}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ trialAssessment[ YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201905} \OperatorTok{&}\StringTok{ }\NormalTok{YEARMONTH }\OperatorTok{>}\StringTok{ }\DecValTok{201901}\NormalTok{ ,],}
+            \KeywordTok{aes}\NormalTok{(}\DataTypeTok{xmin =} \KeywordTok{min}\NormalTok{(TransactionMonth), }\DataTypeTok{xmax =} \KeywordTok{max}\NormalTok{(TransactionMonth), }\DataTypeTok{ymin =} \DecValTok{0}\NormalTok{ , }\DataTypeTok{ymax =}
+                  \OtherTok{Inf}\NormalTok{, }\DataTypeTok{color =} \OtherTok{NULL}\NormalTok{), }\DataTypeTok{show.legend =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month of operation"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"NUmber of Customers"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"NUmber of Customers by month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task2_files/figure-latex/cars-8.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{### TRIAL STORE 88}
+\NormalTok{trial_store <-}\StringTok{ }\DecValTok{88}
+\NormalTok{corr_nSales <-}\StringTok{ }\KeywordTok{calculateCorrelation}\NormalTok{(preTrialMeasures, }\KeywordTok{quote}\NormalTok{(totSales), }
+\NormalTok{                                    trial_store)}
+\NormalTok{corr_nCustomers <-}\StringTok{ }\KeywordTok{calculateCorrelation}\NormalTok{(preTrialMeasures, }\KeywordTok{quote}\NormalTok{(nCustomers),trial_store )}
+\NormalTok{magnitude_nSales <-}\StringTok{ }\KeywordTok{calculateMagnitudeDistance}\NormalTok{(preTrialMeasures, }\KeywordTok{quote}\NormalTok{(totSales),}
+\NormalTok{                                               trial_store)}
+\NormalTok{magnitude_nCustomers <-}\StringTok{ }\KeywordTok{calculateMagnitudeDistance}\NormalTok{(preTrialMeasures,}
+                                                   \KeywordTok{quote}\NormalTok{(nCustomers), trial_store)}
+
+
+\NormalTok{corr_weight <-}\StringTok{ }\FloatTok{0.5}
+\NormalTok{score_nSales <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(corr_nSales, magnitude_nSales, }\DataTypeTok{by =} \KeywordTok{intersect}\NormalTok{(}\KeywordTok{names}\NormalTok{(corr_nSales),}\KeywordTok{names}\NormalTok{(magnitude_nSales)))[, scoreNSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{corr_weight}\OperatorTok{*}\NormalTok{corr_nSales}\OperatorTok{$}\NormalTok{corr_measure }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{corr_weight)}\OperatorTok{*}\StringTok{ }\NormalTok{magnitude_nSales}\OperatorTok{$}\NormalTok{mag_measure]}
+\NormalTok{score_nCustomers <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(corr_nCustomers, magnitude_nCustomers, }\DataTypeTok{by =} \KeywordTok{intersect}\NormalTok{(}\KeywordTok{names}\NormalTok{(corr_nCustomers),}\KeywordTok{names}\NormalTok{(magnitude_nCustomers)))[, scoreNCust }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{corr_weight}\OperatorTok{*}\NormalTok{corr_measure }\OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{corr_weight)}\OperatorTok{*}\NormalTok{mag_measure]}
+\NormalTok{score_Control <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(score_nSales,score_nCustomers , }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"Store1"}\NormalTok{, }\StringTok{"Store2"}\NormalTok{))}
+\NormalTok{score_Control[, finalControlScore }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{scoreNSales }\OperatorTok{*}\StringTok{ }\FloatTok{0.5} \OperatorTok{+}\StringTok{ }\NormalTok{scoreNCust }\OperatorTok{*}\StringTok{ }\FloatTok{0.5}\NormalTok{]}
+
+\NormalTok{score_Control =}\StringTok{ }\NormalTok{score_Control[}\KeywordTok{order}\NormalTok{(}\OperatorTok{-}\NormalTok{finalControlScore)]}
+\NormalTok{control_store =}\StringTok{ }\NormalTok{score_Control[}\DecValTok{2}\NormalTok{,]}\OperatorTok{$}\NormalTok{Store2}
+
+\NormalTok{measureOverTimeSales =}\StringTok{ }\NormalTok{measure_over_time}
+\NormalTok{measureOverTimeSales}\OperatorTok{$}\NormalTok{YEARMONTH =}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(measureOverTimeSales}\OperatorTok{$}\NormalTok{YEARMONTH)}
+\NormalTok{pastSales <-}\StringTok{ }\NormalTok{measureOverTimeSales[, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{trial_store,}
+                                                         \StringTok{"Trial"}\NormalTok{,}
+                                                         \KeywordTok{ifelse}\NormalTok{(STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store,}
+                                                                \StringTok{"Control"}\NormalTok{, }\StringTok{"Other stores"}\NormalTok{))}
+\NormalTok{                                  ][, totSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{mean}\NormalTok{(totSales), by =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"YEARMONTH"}\NormalTok{,}
+                                                                         \StringTok{"Store_type"}\NormalTok{)}
+\NormalTok{                                    ][, TransactionMonth }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{as.Date}\NormalTok{(}\KeywordTok{paste}\NormalTok{(YEARMONTH }\OperatorTok{%/%}\StringTok{ }\DecValTok{100}\NormalTok{, YEARMONTH }\OperatorTok{%%}\StringTok{ }\DecValTok{100}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"-"}\NormalTok{))}
+\NormalTok{                                      ][YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201903}\NormalTok{ , ]}
+
+
+\KeywordTok{ggplot}\NormalTok{(pastSales, }\KeywordTok{aes}\NormalTok{(TransactionMonth, totSales, }\DataTypeTok{color =}\NormalTok{ Store_type)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month of operation"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"Total sales"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Total sales by month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task2_files/figure-latex/cars-9.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pastCustomers <-}\StringTok{ }\NormalTok{measureOverTimeSales[, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{trial_store,}
+                                                             \StringTok{"Trial"}\NormalTok{,}
+                                                             \KeywordTok{ifelse}\NormalTok{(STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store,}
+                                                                    \StringTok{"Control"}\NormalTok{, }\StringTok{"Other stores"}\NormalTok{))}
+\NormalTok{                                      ][, nCustomers }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{mean}\NormalTok{(nCustomers), by =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"YEARMONTH"}\NormalTok{,}
+                                                                                 \StringTok{"Store_type"}\NormalTok{)}
+\NormalTok{                                        ][, TransactionMonth }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{as.Date}\NormalTok{(}\KeywordTok{paste}\NormalTok{(YEARMONTH }\OperatorTok{%/%}\StringTok{ }\DecValTok{100}\NormalTok{, YEARMONTH }\OperatorTok{%%}\StringTok{ }\DecValTok{100}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"-"}\NormalTok{))}
+\NormalTok{                                          ][YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201903}\NormalTok{ , ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 1 column 'nCustomers': 70.162879 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 2 column 'nCustomers': 70.697318 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 3 column 'nCustomers': 68.477099 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 4 column 'nCustomers': 69.673004 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 5 column 'nCustomers': 68.843511 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 6 column 'nCustomers': 72.130268 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 7 column 'nCustomers': 69.842912 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 8 column 'nCustomers': 64.881679 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 9 column 'nCustomers': 70.889734 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 10 column 'nCustomers': 68.121673 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 11 column 'nCustomers': 70.310345 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in `[.data.table`(measureOverTimeSales[, `:=`(Store_type,
+## ifelse(STORE_NBR == : Group 12 column 'nCustomers': 68.793893 (type
+## 'double') at RHS position 1 truncated (precision lost) when assigning to
+## type 'integer'
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(pastCustomers, }\KeywordTok{aes}\NormalTok{(TransactionMonth, nCustomers, }\DataTypeTok{color =}\NormalTok{ Store_type)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month of operation"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"Total sales"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Total sales by month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task2_files/figure-latex/cars-10.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{scalingFactorForControlSales <-}\StringTok{ }\NormalTok{preTrialMeasures[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{trial_store }\OperatorTok{&}
+\StringTok{                                                   }\NormalTok{YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{, }\KeywordTok{sum}\NormalTok{(totSales)]}\OperatorTok{/}\NormalTok{preTrialMeasures[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store }\OperatorTok{&}
+\StringTok{                                                                                                         }\NormalTok{YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{, }\KeywordTok{sum}\NormalTok{(totSales)]}
+
+\NormalTok{scaledControlSales <-}\StringTok{ }\NormalTok{measureOverTimeSales[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store, ][ ,}
+\NormalTok{                                                                          controlSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{totSales }\OperatorTok{*}\StringTok{ }\NormalTok{scalingFactorForControlSales]}
+
+\NormalTok{percentageDiff <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(scaledControlSales,pastSales[Store_type }\OperatorTok{==}\StringTok{ "Trial"}\NormalTok{], }\DataTypeTok{by =} \StringTok{"YEARMONTH"}\NormalTok{)[,percentageDiff }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\DecValTok{100}\OperatorTok{*}\KeywordTok{abs}\NormalTok{(controlSales }\OperatorTok{-}\StringTok{ }\NormalTok{totSales.y)}\OperatorTok{/}\NormalTok{controlSales ]}
+\NormalTok{stdDev <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(percentageDiff[YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{ , percentageDiff])}
+
+\NormalTok{degreesOfFreedom <-}\StringTok{ }\DecValTok{7}
+\NormalTok{percentageDiff[, tValue }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{abs}\NormalTok{(totSales.x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(totSales.y))}\OperatorTok{/}\NormalTok{stdDev}
+\NormalTok{               ][, TransactionMonth }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{TransactionMonth.x}
+\NormalTok{                 ]}
+\NormalTok{pastSales <-}\StringTok{ }\NormalTok{pastSales[Store_type }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Trial"}\NormalTok{, }\StringTok{"Control"}\NormalTok{), ]}
+
+
+\NormalTok{pastSales_Controls95 <-}\StringTok{ }\NormalTok{pastSales[Store_type }\OperatorTok{==}\StringTok{ "Control"}\NormalTok{,}
+\NormalTok{                                  ][, totSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{totSales }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{stdDev }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{                                    ][, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Control 95th % confidence}
+\StringTok{interval"}\NormalTok{]}
+\CommentTok{#### Control store 5th percentile}
+\NormalTok{pastSales_Controls5 <-}\StringTok{ }\NormalTok{pastSales[Store_type }\OperatorTok{==}\StringTok{ "Control"}\NormalTok{,}
+\NormalTok{                                 ][, totSales }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{totSales }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{stdDev }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{                                   ][, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Control 5th % confidence}
+\StringTok{interval"}\NormalTok{]}
+\NormalTok{trialAssessment <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(pastSales, pastSales_Controls95, pastSales_Controls5)}
+\CommentTok{#### Plotting these in one nice graph}
+\KeywordTok{ggplot}\NormalTok{(trialAssessment, }\KeywordTok{aes}\NormalTok{(TransactionMonth, totSales, }\DataTypeTok{color =}\NormalTok{ Store_type)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_rect}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ trialAssessment[ YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201905} \OperatorTok{&}\StringTok{ }\NormalTok{YEARMONTH }\OperatorTok{>}\StringTok{ }\DecValTok{201901}\NormalTok{ ,],}
+            \KeywordTok{aes}\NormalTok{(}\DataTypeTok{xmin =} \KeywordTok{min}\NormalTok{(TransactionMonth), }\DataTypeTok{xmax =} \KeywordTok{max}\NormalTok{(TransactionMonth), }\DataTypeTok{ymin =} \DecValTok{0}\NormalTok{ , }\DataTypeTok{ymax =}
+                  \OtherTok{Inf}\NormalTok{, }\DataTypeTok{color =} \OtherTok{NULL}\NormalTok{), }\DataTypeTok{show.legend =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month of operation"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"Total sales"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Total sales by month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task2_files/figure-latex/cars-11.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{scalingFactorForControlCust <-}\StringTok{ }\NormalTok{preTrialMeasures[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{trial_store }\OperatorTok{&}\StringTok{ }\NormalTok{YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{, }\KeywordTok{sum}\NormalTok{(nCustomers)]}\OperatorTok{/}\NormalTok{preTrialMeasures[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store }\OperatorTok{&}\StringTok{ }\NormalTok{YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{, }\KeywordTok{sum}\NormalTok{(nCustomers)]}
+\NormalTok{measureOverTimeCusts <-}\StringTok{ }\NormalTok{measureOverTimeSales}
+\NormalTok{scaledControlCustomers <-}\StringTok{ }\NormalTok{measureOverTimeCusts[STORE_NBR }\OperatorTok{==}\StringTok{ }\NormalTok{control_store, ][ , controlCustomer }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{nCustomers }\OperatorTok{*}\StringTok{ }\NormalTok{scalingFactorForControlCust]}
+
+\NormalTok{percentageDiff <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(scaledControlCustomers,pastCustomers[Store_type }\OperatorTok{==}\StringTok{ "Trial"}\NormalTok{], }\DataTypeTok{by =} \StringTok{"YEARMONTH"}\NormalTok{)[,percentageDiff }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\DecValTok{100}\OperatorTok{*}\KeywordTok{abs}\NormalTok{(controlCustomer }\OperatorTok{-}\StringTok{ }\NormalTok{nCustomers.y)}\OperatorTok{/}\NormalTok{controlCustomer ]}
+\NormalTok{stdDev <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(percentageDiff[YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201902}\NormalTok{ , percentageDiff]}
+\NormalTok{)}
+
+\NormalTok{degreesOfFreedom <-}\StringTok{ }\DecValTok{7}
+\CommentTok{#### Trial and control store number of customers}
+\NormalTok{pastCustomers <-}\StringTok{ }\NormalTok{measureOverTimeCusts[, nCusts }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{mean}\NormalTok{(nCustomers), by =}
+\StringTok{                                        }\KeywordTok{c}\NormalTok{(}\StringTok{"YEARMONTH"}\NormalTok{, }\StringTok{"Store_type"}\NormalTok{)}
+\NormalTok{                                      ][Store_type }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Trial"}\NormalTok{, }\StringTok{"Control"}\NormalTok{), ]}
+
+
+\NormalTok{pastCustomers_Controls95 <-}\StringTok{ }\NormalTok{pastCustomers[Store_type }\OperatorTok{==}\StringTok{ "Control"}\NormalTok{,}
+\NormalTok{                                          ][, nCusts }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{nCusts }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{stdDev }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{                                            ][, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Control 95th % confidence}
+\StringTok{Page 920200128_InsideSherpa_Task2_DraftSolutions - Template.Rmd}
+\StringTok{interval"}\NormalTok{]}
+\CommentTok{#### Control store 5th percentile}
+\NormalTok{pastCustomers_Controls5 <-}\StringTok{ }\NormalTok{pastCustomers[Store_type }\OperatorTok{==}\StringTok{ "Control"}\NormalTok{,}
+\NormalTok{                                         ][, nCusts }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\NormalTok{nCusts }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{stdDev }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{)}
+\NormalTok{                                           ][, Store_type }\OperatorTok{:}\ErrorTok{=}\StringTok{ "Control 5th % confidence}
+\StringTok{interval"}\NormalTok{]}
+\NormalTok{trialAssessment <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(pastCustomers, pastCustomers_Controls95,}
+\NormalTok{                         pastCustomers_Controls5)}
+
+\KeywordTok{ggplot}\NormalTok{(trialAssessment, }\KeywordTok{aes}\NormalTok{(TransactionMonth, nCusts, }\DataTypeTok{color =}\NormalTok{ Store_type)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_rect}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ trialAssessment[ YEARMONTH }\OperatorTok{<}\StringTok{ }\DecValTok{201905} \OperatorTok{&}\StringTok{ }\NormalTok{YEARMONTH }\OperatorTok{>}\StringTok{ }\DecValTok{201901}\NormalTok{ ,],}
+            \KeywordTok{aes}\NormalTok{(}\DataTypeTok{xmin =} \KeywordTok{min}\NormalTok{(TransactionMonth), }\DataTypeTok{xmax =} \KeywordTok{max}\NormalTok{(TransactionMonth), }\DataTypeTok{ymin =} \DecValTok{0}\NormalTok{ , }\DataTypeTok{ymax =}
+                  \OtherTok{Inf}\NormalTok{, }\DataTypeTok{color =} \OtherTok{NULL}\NormalTok{), }\DataTypeTok{show.legend =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Month of operation"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"NUmber of Customers"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"NUmber of Customers by month"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Task2_files/figure-latex/cars-12.pdf}
+
+\end{document}
